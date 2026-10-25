@@ -1,43 +1,34 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-import pytest
 
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from pages.login_page import LoginPage
+from pages.inventory_page import InventoryPage
+from pages.cart_page import CartPage
 
-def test_cart():
-    driver = webdriver.Chrome()
+from utils.reader import read_products_json
 
-    wait = WebDriverWait(driver, 10)
+def test_cart(driver):
+    login_page = LoginPage(driver)
+    inventory_page = InventoryPage(driver)
+    cart_page = CartPage(driver)
+    
+    driver.get("https://saucedemo.com/")
 
-    try:
-         # Login
-        driver.get("https://www.saucedemo.com/")
+    login_page.login("standard_user","secret_sauce")
 
-        wait.until(EC.visibility_of_element_located((By.ID, "user-name"))).send_keys("standard_user")
-        password = driver.find_element(By.ID, "password")
-        boton_login = driver.find_element(By.ID, "login-button")
-        
-        password.send_keys("secret_sauce")
-        
-        boton_login.click()
+    # Leer el 1er prod del Json
+    producto = read_products_json()[0]
+    print(producto)
 
-        primer_producto = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "inventory_item")))
+     # Agregar prod del Json
+    inventory_page.agregar_producto(producto["nombre"])
 
-        nombre_producto = primer_producto.find_element(By.CLASS_NAME, "inventory_item_name").text
-        boton_agregar = primer_producto.find_element(By.TAG_NAME, "button")
-         
-        boton_agregar.click()
+    assert inventory_page.obtener_contador_carrito() == "1"
 
-        contador_carrito = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "shopping_cart_badge")))
+    # Ir al carrito
+    inventory_page.ir_al_carrito()
 
-        assert contador_carrito.text == "1"
+    # Validar nombre contra el Json
+    assert cart_page.obtener_nombreproducto() == producto["nombre"]
 
-        wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "shopping_cart_link"))).click()
-
-        nombre_producto_carrito = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "inventory_item_name"))).text
-
-        assert nombre_producto == nombre_producto_carrito
-        
-    finally:
-        driver.quit()
+    # Validar precio contra el Json
+    assert cart_page.obtener_precio_producto() == producto["precio"]
