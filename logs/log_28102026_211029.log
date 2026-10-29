@@ -1,0 +1,123 @@
+2026-10-28 21:10:33,587 INFO Talento_Tech - Iniciando prueba de obtener usuario
+2026-10-28 21:10:34,110 INFO Talento_Tech - Solicitud GET ejecutada
+2026-10-28 21:10:34,111 INFO Talento_Tech - Codigo de estado validado
+2026-10-28 21:10:34,111 INFO Talento_Tech - Content-Type validado
+2026-10-28 21:10:34,112 INFO Talento_Tech - Respuesta JSON obtenida
+2026-10-28 21:10:34,112 INFO Talento_Tech - Estructura de respuesta validada
+2026-10-28 21:10:34,112 INFO Talento_Tech - Contenido de usuario validado
+2026-10-28 21:10:34,112 INFO Talento_Tech - Tiempo de respuesta validado
+2026-10-28 21:10:34,120 INFO Talento_Tech - Iniciando prueba de crear usuario
+2026-10-28 21:10:34,652 INFO Talento_Tech - Solicitud POST ejecutada
+2026-10-28 21:10:34,653 INFO Talento_Tech - Codigo de estado validado
+2026-10-28 21:10:34,653 INFO Talento_Tech - Content-Type validado
+2026-10-28 21:10:34,653 INFO Talento_Tech - Estructura de respuesta validada
+2026-10-28 21:10:34,654 INFO Talento_Tech - Contenido del usuario validado
+2026-10-28 21:10:34,654 INFO Talento_Tech - Tiempo de respuesta validado
+2026-10-28 21:10:34,662 INFO Talento_Tech - Iniciando prueba de eliminar usuario
+2026-10-28 21:10:34,934 INFO Talento_Tech - Solicitud DELETE ejecutada
+2026-10-28 21:10:34,934 INFO Talento_Tech - Codigo de estado validado
+2026-10-28 21:10:34,934 INFO Talento_Tech - Ausencia de Content-Type validada
+2026-10-28 21:10:34,935 INFO Talento_Tech - Respuesta sin contenido validada
+2026-10-28 21:10:34,935 INFO Talento_Tech - Tiempo de respuesta validado
+2026-10-28 21:10:35,476 INFO Talento_Tech - Iniciando prueba del carrito
+2026-10-28 21:10:35,791 INFO Talento_Tech - Pagina abierta correctamente
+2026-10-28 21:10:35,791 INFO Talento_Tech - Iniciando proceso de login
+2026-10-28 21:10:35,840 INFO Talento_Tech - Usuario ingresado
+2026-10-28 21:10:35,882 INFO Talento_Tech - Contraseña ingresada
+2026-10-28 21:10:35,918 INFO Talento_Tech - Click en el botón de login
+2026-10-28 21:10:35,918 INFO Talento_Tech - Proceso de login ejecutado
+2026-10-28 21:10:35,918 INFO Talento_Tech - Ingreso de credenciales
+2026-10-28 21:10:35,918 INFO Talento_Tech - Producto obtenido del JSON
+2026-10-28 21:10:35,989 INFO Talento_Tech - Productos obtenidos del inventario
+2026-10-28 21:10:36,033 INFO Talento_Tech - Producto agregado al carrito
+2026-10-28 21:10:36,033 INFO Talento_Tech - Producto agregado al carrito
+2026-10-28 21:10:36,046 INFO Talento_Tech - Contador del carrito obtenido
+2026-10-28 21:10:36,046 INFO Talento_Tech - Contador del carrito validado
+2026-10-28 21:10:36,079 INFO Talento_Tech - Ingreso al carrito
+2026-10-28 21:10:36,080 INFO Talento_Tech - Ingreso al carrito
+2026-10-28 21:10:36,094 INFO Talento_Tech - Nombre del producto obtenido del carrito
+2026-10-28 21:10:36,094 INFO Talento_Tech - Nombre del producto validado
+2026-10-28 21:10:36,108 INFO Talento_Tech - Precio del producto obtenido del carrito
+2026-10-28 21:10:36,108 INFO Talento_Tech - Precio del producto validado
+2026-10-28 21:10:39,213 INFO Talento_Tech - Iniciando prueba de inventario
+2026-10-28 21:10:39,425 INFO Talento_Tech - Pagina abierta correctamente
+2026-10-28 21:10:39,425 INFO Talento_Tech - Iniciando proceso de login
+2026-10-28 21:10:39,481 INFO Talento_Tech - Usuario ingresado
+2026-10-28 21:10:39,517 INFO Talento_Tech - Contraseña ingresada
+2026-10-28 21:10:39,561 INFO Talento_Tech - Click en el botón de login
+2026-10-28 21:10:39,561 INFO Talento_Tech - Proceso de login ejecutado
+2026-10-28 21:10:39,561 INFO Talento_Tech - Ingreso de credenciales
+2026-10-28 21:10:39,597 INFO Talento_Tech - Productos obtenidos del inventario
+2026-10-28 21:10:39,597 INFO Talento_Tech - Productos obtenidos correctamente
+2026-10-28 21:10:39,598 INFO Talento_Tech - Se verifico que existan productos
+2026-10-28 21:10:39,602 INFO Talento_Tech - Productos obtenidos del inventario
+2026-10-28 21:10:39,615 INFO Talento_Tech - Nombre del primer producto obtenido
+2026-10-28 21:10:39,615 INFO Talento_Tech - Nombre del primer producto validado
+2026-10-28 21:10:39,619 INFO Talento_Tech - Productos obtenidos del inventario
+2026-10-28 21:10:39,629 INFO Talento_Tech - Precio del primer producto obtenido
+2026-10-28 21:10:39,629 INFO Talento_Tech - Precio del primer producto validado
+2026-10-28 21:10:39,634 INFO Talento_Tech - Menu localizado
+2026-10-28 21:10:39,640 INFO Talento_Tech - Menu visible
+2026-10-28 21:10:49,653 ERROR Talento_Tech - Error durante la prueba de inventario
+Traceback (most recent call last):
+  File "D:\Pre-entrega\tests\test_inventory.py", line 34, in test_inventory
+    assert inventory_page.filtro_visible()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Pre-entrega\pages\inventory_page.py", line 36, in filtro_visible
+    filtro = self.wait.until(
+        EC.visibility_of_element_located((By.ID, "product_sort_container"))
+    )
+  File "C:\Users\Julyx\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\selenium\webdriver\support\wait.py", line 121, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	(No symbol) [0x7ff772a72e35]
+	(No symbol) [0x7ff772981dc0]
+	(No symbol) [0x7ff772802d03]
+	(No symbol) [0x7ff7730198b1]
+	(No symbol) [0x7ff773019b0c]
+	(No symbol) [0x7ff773047ad7]
+	(No symbol) [0x7ff772836271]
+	(No symbol) [0x7ff77281bae9]
+	(No symbol) [0x7ff77281ce13]
+	(No symbol) [0x7ff772f063c1]
+	(No symbol) [0x7ff772f2987b]
+	(No symbol) [0x7ff772f1e240]
+	(No symbol) [0x7ff772b9b4ee]
+	(No symbol) [0x7ff772990985]
+	(No symbol) [0x7ff77298b9e4]
+	(No symbol) [0x7ff77298bb74]
+	(No symbol) [0x7ff772974bfc]
+	(No symbol) [0x7fffbf72dda7]
+	(No symbol) [0x7fffc133ee4c]
+
+2026-10-28 21:10:53,089 INFO Talento_Tech - Iniciando prueba de login
+2026-10-28 21:10:53,323 INFO Talento_Tech - Pagina abierta correctamente
+2026-10-28 21:10:53,323 INFO Talento_Tech - Iniciando proceso de login
+2026-10-28 21:10:53,371 INFO Talento_Tech - Usuario ingresado
+2026-10-28 21:10:53,414 INFO Talento_Tech - Contraseña ingresada
+2026-10-28 21:10:53,451 INFO Talento_Tech - Click en el botón de login
+2026-10-28 21:10:53,451 INFO Talento_Tech - Proceso de login ejecutado
+2026-10-28 21:10:53,451 INFO Talento_Tech - Ingreso de credenciales
+2026-10-28 21:10:53,454 INFO Talento_Tech - Login exitoso
+2026-10-28 21:10:56,049 INFO Talento_Tech - Iniciando prueba de login
+2026-10-28 21:10:56,255 INFO Talento_Tech - Pagina abierta correctamente
+2026-10-28 21:10:56,255 INFO Talento_Tech - Iniciando proceso de login
+2026-10-28 21:10:56,308 INFO Talento_Tech - Usuario ingresado
+2026-10-28 21:10:56,345 INFO Talento_Tech - Contraseña ingresada
+2026-10-28 21:10:56,386 INFO Talento_Tech - Click en el botón de login
+2026-10-28 21:10:56,387 INFO Talento_Tech - Proceso de login ejecutado
+2026-10-28 21:10:56,387 INFO Talento_Tech - Ingreso de credenciales
+2026-10-28 21:10:56,397 INFO Talento_Tech - Mensaje de error obtenido
+2026-10-28 21:10:56,404 INFO Talento_Tech - Prueba de mensaje de error valida
+2026-10-28 21:10:59,443 INFO Talento_Tech - Iniciando prueba de login
+2026-10-28 21:10:59,647 INFO Talento_Tech - Pagina abierta correctamente
+2026-10-28 21:10:59,647 INFO Talento_Tech - Iniciando proceso de login
+2026-10-28 21:10:59,691 INFO Talento_Tech - Usuario ingresado
+2026-10-28 21:10:59,735 INFO Talento_Tech - Contraseña ingresada
+2026-10-28 21:10:59,777 INFO Talento_Tech - Click en el botón de login
+2026-10-28 21:10:59,777 INFO Talento_Tech - Proceso de login ejecutado
+2026-10-28 21:10:59,777 INFO Talento_Tech - Ingreso de credenciales
+2026-10-28 21:10:59,787 INFO Talento_Tech - Mensaje de error obtenido
+2026-10-28 21:10:59,794 INFO Talento_Tech - Prueba de mensaje de error valida

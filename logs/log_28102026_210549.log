@@ -1,0 +1,21 @@
+2026-10-28 21:05:49,249 INFO Talento_Tech - Iniciando prueba de obtener usuario
+2026-10-28 21:05:50,188 INFO Talento_Tech - Solicitud GET ejecutada
+2026-10-28 21:05:50,188 INFO Talento_Tech - Codigo de estado validado
+2026-10-28 21:05:50,189 INFO Talento_Tech - Content-Type validado
+2026-10-28 21:05:50,189 INFO Talento_Tech - Respuesta JSON obtenida
+2026-10-28 21:05:50,189 INFO Talento_Tech - Estructura de respuesta validada
+2026-10-28 21:05:50,189 INFO Talento_Tech - Contenido de usuario validado
+2026-10-28 21:05:50,190 INFO Talento_Tech - Tiempo de respuesta validado
+2026-10-28 21:05:50,199 INFO Talento_Tech - Iniciando prueba de crear usuario
+2026-10-28 21:05:50,769 INFO Talento_Tech - Solicitud POST ejecutada
+2026-10-28 21:05:50,770 INFO Talento_Tech - Codigo de estado validado
+2026-10-28 21:05:50,771 INFO Talento_Tech - Content-Type validado
+2026-10-28 21:05:50,771 INFO Talento_Tech - Estructura de respuesta validada
+2026-10-28 21:05:50,771 INFO Talento_Tech - Contenido del usuario validado
+2026-10-28 21:05:50,771 INFO Talento_Tech - Tiempo de respuesta validado
+2026-10-28 21:05:50,779 INFO Talento_Tech - Iniciando prueba de eliminar usuario
+2026-10-28 21:05:51,068 INFO Talento_Tech - Solicitud DELETE ejecutada
+2026-10-28 21:05:51,068 INFO Talento_Tech - Codigo de estado validado
+2026-10-28 21:05:51,068 INFO Talento_Tech - Ausencia de Content-Type validada
+2026-10-28 21:05:51,069 INFO Talento_Tech - Respuesta sin contenido validada
+2026-10-28 21:05:51,069 INFO Talento_Tech - Tiempo de respuesta validado

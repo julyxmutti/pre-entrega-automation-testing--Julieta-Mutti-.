@@ -1,6 +1,10 @@
 import pytest
 from selenium import webdriver
 
+import pytest_html
+import pathlib 
+import base64 
+
 @pytest.fixture
 def driver():
     options = webdriver.ChromeOptions()
@@ -9,6 +13,34 @@ def driver():
 
     driver.implicitly_wait(10)
 
+
     yield driver
 
     driver.quit()
+
+@pytest.fixture
+def base_url():
+    return "https://reqres.in/api"
+
+@pytest.fixture
+def headers():
+    return{ "x-api-key": "pub_ccb7423645c94ec1940eda35d142516020604aa6b6224e338145b36de9546884" }
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item,call):
+    outcome = yield
+    report = outcome.get_result()
+
+    if report.when == "call" and report.failed:
+        driver = item.funcargs.get("driver")
+
+        carpeta = pathlib.Path("reports/screenshots")
+        carpeta.mkdir(parents=True,exist_ok=True) # Esta función crea la carpeta
+        archivo = carpeta / f"{item.name}.png"
+
+        driver.save_screenshot(str(archivo))
+
+        imagen = base64.b64encode(archivo.read_bytes()).decode("utf-8")
+        report.extras = [
+            pytest_html.extras.png(imagen, name="Screenshot")
+        ]

@@ -1,0 +1,53 @@
+2026-10-28 21:12:20,300 INFO Talento_Tech - Iniciando prueba de inventario
+2026-10-28 21:12:20,508 INFO Talento_Tech - Pagina abierta correctamente
+2026-10-28 21:12:20,508 INFO Talento_Tech - Iniciando proceso de login
+2026-10-28 21:12:20,562 INFO Talento_Tech - Usuario ingresado
+2026-10-28 21:12:20,603 INFO Talento_Tech - Contraseña ingresada
+2026-10-28 21:12:20,647 INFO Talento_Tech - Click en el botón de login
+2026-10-28 21:12:20,647 INFO Talento_Tech - Proceso de login ejecutado
+2026-10-28 21:12:20,647 INFO Talento_Tech - Ingreso de credenciales
+2026-10-28 21:12:20,686 INFO Talento_Tech - Productos obtenidos del inventario
+2026-10-28 21:12:20,686 INFO Talento_Tech - Productos obtenidos correctamente
+2026-10-28 21:12:20,687 INFO Talento_Tech - Se verifico que existan productos
+2026-10-28 21:12:20,692 INFO Talento_Tech - Productos obtenidos del inventario
+2026-10-28 21:12:20,706 INFO Talento_Tech - Nombre del primer producto obtenido
+2026-10-28 21:12:20,706 INFO Talento_Tech - Nombre del primer producto validado
+2026-10-28 21:12:20,714 INFO Talento_Tech - Productos obtenidos del inventario
+2026-10-28 21:12:20,726 INFO Talento_Tech - Precio del primer producto obtenido
+2026-10-28 21:12:20,726 INFO Talento_Tech - Precio del primer producto validado
+2026-10-28 21:12:20,733 INFO Talento_Tech - Menu localizado
+2026-10-28 21:12:20,740 INFO Talento_Tech - Menu visible
+2026-10-28 21:12:30,767 ERROR Talento_Tech - Error durante la prueba de inventario
+Traceback (most recent call last):
+  File "D:\Pre-entrega\tests\test_inventory.py", line 34, in test_inventory
+    assert inventory_page.filtro_visible()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Pre-entrega\pages\inventory_page.py", line 36, in filtro_visible
+    filtro = self.wait.until(
+        EC.visibility_of_element_located((By.ID, "product_sort_container"))
+    )
+  File "C:\Users\Julyx\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\selenium\webdriver\support\wait.py", line 121, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	(No symbol) [0x7ff772a72e35]
+	(No symbol) [0x7ff772981dc0]
+	(No symbol) [0x7ff772802d03]
+	(No symbol) [0x7ff7730198b1]
+	(No symbol) [0x7ff773019b0c]
+	(No symbol) [0x7ff773047ad7]
+	(No symbol) [0x7ff772836271]
+	(No symbol) [0x7ff77281bae9]
+	(No symbol) [0x7ff77281ce13]
+	(No symbol) [0x7ff772f063c1]
+	(No symbol) [0x7ff772f2987b]
+	(No symbol) [0x7ff772f1e240]
+	(No symbol) [0x7ff772b9b4ee]
+	(No symbol) [0x7ff772990985]
+	(No symbol) [0x7ff77298b9e4]
+	(No symbol) [0x7ff77298bb74]
+	(No symbol) [0x7ff772974bfc]
+	(No symbol) [0x7fffbf72dda7]
+	(No symbol) [0x7fffc133ee4c]
+
