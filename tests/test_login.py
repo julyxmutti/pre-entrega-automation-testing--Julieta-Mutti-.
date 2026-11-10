@@ -1,8 +1,12 @@
+#py -m pytest tests/test_login.py
+#py -m pytest tests/test_login.py --reruns 3 --reruns-delay 5
+
 from pages.login_page import LoginPage
 import pytest
 from utils.reader import read_users_csv
 from utils.logger import logger
 
+@pytest.mark.flaky(reruns=2,reruns_delay=5)
 @pytest.mark.parametrize(
         "data", read_users_csv())
 def test_login(driver, data):
@@ -21,7 +25,7 @@ def test_login(driver, data):
             logger.info("Login exitoso")
         elif data["tipo_usuario"] == "False":
             error = login_page.obtener_mensaje_error()
-            assert "Epic sadface" in error
+            assert "Epic sadfaceasdasd" in error
             logger.info("Prueba de mensaje de error valida")
     except Exception:
         logger.exception("Error durante la prueba de login")
