@@ -7,6 +7,7 @@ Proyecto de automatización de pruebas realizado con Python para el curso de Tal
 - Python
 - Selenium
 - Pytest
+- Behave
 - Git
 - GitHub
 
@@ -15,32 +16,20 @@ Proyecto de automatización de pruebas realizado con Python para el curso de Tal
 Instalar las dependencias necesarias:
 
 ```bash
-pip install selenium
-pip install pytest
-pip install pytest-html
+pip install selenium pytest pytest-html behave
 ```
 
 ## Ejecutar las pruebas
 
-Ejecutar todos los tests desde la carpeta raíz del proyecto:
+Desde la carpeta raíz del proyecto:
 
 ```bash
-pytest
+python -m pytest                 # Ejecutar todos los tests
+python -m pytest tests/test_login.py  # Ejecutar tests de login
+python -m behave                 # Ejecutar pruebas BDD con Behave
 ```
 
-Si el comando `python` o `pytest` no funciona en Git Bash, utilizar la ruta completa del intérprete de Python:
-
-```bash
-"C:/Users/Julyx/AppData/Local/Python/pythoncore-3.14-64/python.exe" -m pytest
-```
-
-### Ejecutar un archivo específico
-
-Por ejemplo, para ejecutar las pruebas de login (Va todo "C:/Users/Julyx/AppData/Local/Python/pythoncore-3.14-64/python.exe" -m pytest tests/test_login.py):
-
-```bash
-"C:/Users/Julyx/AppData/Local/Python/pythoncore-3.14-64/python.exe" -m pytest tests/test_login.py
-```
+**Nota:** Si Windows no reconoce el comando `python`, verificar el PATH y los alias de ejecución de aplicaciones. En VS Code se recomienda utilizar PowerShell como terminal.
 
 ## Reporte HTML
 
