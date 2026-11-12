@@ -27,21 +27,29 @@ def base_url():
 def headers():
     return{ "x-api-key": "pub_ccb7423645c94ec1940eda35d142516020604aa6b6224e338145b36de9546884" }
 
+
 @pytest.hookimpl(hookwrapper=True)
-def pytest_runtest_makereport(item,call):
+def pytest_runtest_makereport(item, call):
     outcome = yield
     report = outcome.get_result()
 
     if report.when == "call" and report.failed:
         driver = item.funcargs.get("driver")
 
-        carpeta = pathlib.Path("reports/screenshots")
-        carpeta.mkdir(parents=True,exist_ok=True) # Esta función crea la carpeta
-        archivo = carpeta / f"{item.name}.png"
+        # Guardar captura solamente si existe un navegador
+        if driver is not None:
+            carpeta = pathlib.Path("reports/screenshots")
+            carpeta.mkdir(parents=True, exist_ok=True)
 
-        driver.save_screenshot(str(archivo))
+            archivo = carpeta / f"{item.name}.png"
 
-        imagen = base64.b64encode(archivo.read_bytes()).decode("utf-8")
-        report.extras = [
-            pytest_html.extras.png(imagen, name="Screenshot")
-        ]
+            driver.save_screenshot(str(archivo))
+
+            imagen = base64.b64encode(
+                archivo.read_bytes()
+            ).decode("utf-8")
+
+            report.extras = getattr(report, "extras", [])
+            report.extras.append(
+                pytest_html.extras.png(imagen, name="Screenshot")
+            )

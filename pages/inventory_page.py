@@ -10,10 +10,16 @@ class InventoryPage:
         self.driver = driver
         self.wait = WebDriverWait(driver, 10)
 
+    
     def obtener_productos(self):
-        productos = self.driver.find_elements(By.CLASS_NAME, "inventory_item")
+        productos = self.wait.until(
+            EC.presence_of_all_elements_located(
+                (By.CLASS_NAME, "inventory_item")
+            )
+        )
         logger.info("Productos obtenidos del inventario")
         return productos
+
 
     def obtener_nombre_primer_producto(self):
         producto = self.obtener_productos()
@@ -32,12 +38,18 @@ class InventoryPage:
         logger.info("Menu localizado")
         return menu.is_displayed()
 
+
+    
     def filtro_visible(self):
         filtro = self.wait.until(
-            EC.visibility_of_element_located((By.ID, "product_sort_container"))
+            EC.visibility_of_element_located(
+                (By.CLASS_NAME, "product_sort_container")
+            )
         )
-        logger.info("Filtro de productos localizado")
+        logger.info("Filtro de productos localizado y visible")
         return filtro.is_displayed()
+
+
 
     def agregar_producto(self, nombre):
         productos = self.obtener_productos()
